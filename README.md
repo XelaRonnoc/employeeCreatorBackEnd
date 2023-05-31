@@ -112,5 +112,4 @@ To Do:
 
 To Do:
 
--   Is this project a reimplementation for something you've done in the past? if so explain it and link it here.
--   If it's an API, is there a client app that works with this project? link it
+-   See front end at https://github.com/XelaRonnoc/employeeCreatorFrontEnd
