@@ -78,6 +78,11 @@ To Do:
 
 ## Change logs
 
+### 31/05/2023 - Exception Handling, Update endpoint creation
+
+-   Added exception handling for get delete by id and update by id.
+-   Added update by ID endpoint.
+
 ### 30/05/2023 - Spring Backend Setup and Creation of endpoints
 
 -   Set up Spring backend to MySQL DB
