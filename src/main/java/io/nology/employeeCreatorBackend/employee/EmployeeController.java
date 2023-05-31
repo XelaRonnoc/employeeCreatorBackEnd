@@ -63,7 +63,7 @@ public class EmployeeController {
 	}
 	
 	@PatchMapping("/{id}")
-	public ResponseEntity<Employee> updateById(@PathVariable Long id, @RequestBody UpdateEmployeeDTO data){
+	public ResponseEntity<Employee> updateById(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO data){
 		Optional<Employee> maybeUpdated = this.service.updateById(id, data);
 		
 		if(maybeUpdated.isEmpty()) {

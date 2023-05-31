@@ -2,43 +2,47 @@ package io.nology.employeeCreatorBackend.employee;
 
 import java.util.Date;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class UpdateEmployeeDTO {
 	
-	@NotBlank
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="First name cannot be and empty string")
 	String firstName;
 	
 	String middleName; // optional
-
-	@NotBlank
+	
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="Last name cannot be and empty string")
 	String lastName;
 	
-	@NotNull
 	Date dateOfBirth;
 	
-	@NotBlank
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="email cannot be and empty string")
 	String email;
 	
-	@NotBlank
+	@Size(min = 9)
+	@Pattern(regexp = "^(?=\\S).*$", message="mobile number must be at least 9 character long")
 	String mobileNum;
 	
-	@NotBlank
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="Address cannot be and empty string")
 	String address;
 	
-	@NotNull
 	Date startDate;
 	
 	Date endDate; // can be null meaning ongoing
 	
-	@NotBlank
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="contract type cannot be and empty string")
 	String contractType;
 	
-	@NotBlank
+	@Size(min = 1)
+	@Pattern(regexp = "^(?=\\S).*$", message="contract time cannot be and empty string")
 	String contractTime;
 	
-	@NotNull
 	Integer contractedHours;
 	
 	public String getFirstName() {
