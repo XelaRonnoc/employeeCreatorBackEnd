@@ -2,6 +2,8 @@ package io.nology.employeeCreatorBackend.employee;
 
 import java.util.Date;
 
+import io.nology.employeeCreatorBackend.address.Address;
+import io.nology.employeeCreatorBackend.contract.Contract;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -27,23 +29,9 @@ public class UpdateEmployeeDTO {
 	@Pattern(regexp = "^(?=\\S).*$", message="mobile number must be at least 9 character long")
 	String mobileNum;
 	
-	@Size(min = 1)
-	@Pattern(regexp = "^(?=\\S).*$", message="Address cannot be and empty string")
-	String address;
+	Address address;
 	
-	Date startDate;
-	
-	Date endDate; // can be null meaning ongoing
-	
-	@Size(min = 1)
-	@Pattern(regexp = "^(?=\\S).*$", message="contract type cannot be and empty string")
-	String contractType;
-	
-	@Size(min = 1)
-	@Pattern(regexp = "^(?=\\S).*$", message="contract time cannot be and empty string")
-	String contractTime;
-	
-	Integer contractedHours;
+	Contract contract;
 	
 	public String getFirstName() {
 		return firstName;
@@ -93,51 +81,20 @@ public class UpdateEmployeeDTO {
 		this.mobileNum = mobileNum;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public Contract getContract() {
+		return contract;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
 
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getContractType() {
-		return contractType;
-	}
-
-	public void setContractType(String contractType) {
-		this.contractType = contractType;
-	}
-
-	public String getContractTime() {
-		return contractTime;
-	}
-
-	public void setContractTime(String contractTime) {
-		this.contractTime = contractTime;
-	}
-
-	public Integer getContractedHours() {
-		return contractedHours;
-	}
-
-	public void setContractedHours(Integer contractedHours) {
-		this.contractedHours = contractedHours;
-	}
 }

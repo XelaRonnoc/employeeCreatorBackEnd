@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,6 +66,17 @@ public class EmployeeController {
 	@PatchMapping("/{id}")
 	public ResponseEntity<Employee> updateById(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO data){
 		Optional<Employee> maybeUpdated = this.service.updateById(id, data);
+		
+		if(maybeUpdated.isEmpty()) {
+			throw new NotFoundException(String.format("Could not update post with id: %d post does not exist", id));
+		}
+		
+		return new ResponseEntity<Employee>(maybeUpdated.get(), HttpStatus.OK);
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Employee> setById(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO data){
+		Optional<Employee> maybeUpdated = this.service.setById(id, data);
 		
 		if(maybeUpdated.isEmpty()) {
 			throw new NotFoundException(String.format("Could not update post with id: %d post does not exist", id));

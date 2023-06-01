@@ -70,4 +70,15 @@ public class EmployeeService {
 		
 		return maybeEmployee;
 	}
+	
+	public Optional<Employee> setById(Long id, UpdateEmployeeDTO data){
+		Optional<Employee> maybeEmployee = this.findById(id);
+		if(maybeEmployee.isPresent()) {
+			Employee existingEmployee = maybeEmployee.get();
+			modelMapper.map(data,  existingEmployee);
+			return Optional.of(this.repository.save(existingEmployee));
+		}
+		
+		return maybeEmployee;
+	}
 }
