@@ -79,6 +79,10 @@ public class EmployeeService {
 		Optional<Employee> maybeEmployee = this.findById(id);
 		if(maybeEmployee.isPresent()) {
 			Employee existingEmployee = maybeEmployee.get();
+			Address existingAddress = existingEmployee.getAddress();
+			Contract existingContract = existingEmployee.getContract();
+			modelMapper.map(data.getAddress(), existingAddress);
+			modelMapper.map(data.getContract(), existingContract);
 			modelMapper.map(data,  existingEmployee);
 			return Optional.of(this.repository.save(existingEmployee));
 		}
