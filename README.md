@@ -84,6 +84,7 @@ To Do:
 -   added new address table and linked to employees
 -   added new contract table and linked to employees
 -   new tables work well on new creation but on update the employee table updates correctly doesn't updated linked records in addres or contract table and instead creates new records.
+-   additionally delete method does not affect linked tables as it should currently
 
 ### 31/05/2023 - Exception Handling, Update endpoint creation
 
