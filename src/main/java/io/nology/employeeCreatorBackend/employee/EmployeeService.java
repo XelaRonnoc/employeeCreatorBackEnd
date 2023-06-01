@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import io.nology.employeeCreatorBackend.address.Address;
+import io.nology.employeeCreatorBackend.address.AddressRepository;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -19,11 +22,16 @@ public class EmployeeService {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@Autowired
+	private AddressRepository addressRepository;
+	
 	public Employee create(CreateEmployeeDTO data) {
 		// turn dto into and employee
 		
 		Employee newEmployee = modelMapper.map(data,  Employee.class);
+		Address newAddress = modelMapper.map(data.address, Address.class); 
 		
+		this.addressRepository.save(newAddress);
 		return this.repository.save(newEmployee);
 	}
 	

@@ -2,11 +2,15 @@ package io.nology.employeeCreatorBackend.employee;
 
 import java.util.Date;
 
+import io.nology.employeeCreatorBackend.address.Address;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -37,9 +41,13 @@ public class Employee {
 	@Column
 	private String mobileNum;
 	
-	@Column
-	private String address; // may be worth splitting into each part of address and or storing in own table
-
+//	@Column
+//	private String address; // may be worth splitting into each part of address and or storing in own table
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "id")
+	private Address address;
+	
 	@Column
 	private Date startDate;
 	
@@ -143,11 +151,11 @@ public class Employee {
 		this.mobileNum = mobileNum;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
@@ -162,7 +170,7 @@ public class Employee {
 	public Employee() {}
 	
 	public Employee(String firstName, String middleName, String lastName, String email, String mobileNum,
-			String address, Date dateOfBirth, Date startDate, Date endDate, String contractType, String contractTime,
+			Address address, Date dateOfBirth, Date startDate, Date endDate, String contractType, String contractTime,
 			Integer contractedHours) {
 		super();
 		this.firstName = firstName;

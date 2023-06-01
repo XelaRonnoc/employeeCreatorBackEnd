@@ -2,6 +2,7 @@ package io.nology.employeeCreatorBackend.employee;
 
 import java.util.Date;
 
+import io.nology.employeeCreatorBackend.address.Address;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -24,8 +25,8 @@ public class CreateEmployeeDTO {
 	@NotBlank
 	String mobileNum;
 	
-	@NotBlank
-	String address;
+	@NotNull
+	Address address;
 	
 	@NotNull
 	Date startDate;
@@ -43,10 +44,10 @@ public class CreateEmployeeDTO {
 	
 
 	
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public String getFirstName() {
