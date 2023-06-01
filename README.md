@@ -78,6 +78,13 @@ To Do:
 
 ## Change logs
 
+### 01/06/2023 - PUT endpoint creation, reDesign of db schema
+
+-   added PUT endpoint allowing for front end autofill forms and single form component for edit and add new employee
+-   added new address table and linked to employees
+-   added new contract table and linked to employees
+-   new tables work well on new creation but on update the employee table updates correctly doesn't updated linked records in addres or contract table and instead creates new records.
+
 ### 31/05/2023 - Exception Handling, Update endpoint creation
 
 -   Added exception handling for get delete by id and update by id.
