@@ -31,7 +31,7 @@ public class Address {
 	private String postCode;
 	
 	
-	public Address() {};
+	public Address() {}
 	
 	public Address(String streetNumber, String streetName, String suburb, String state, String postCode) {
 		super();

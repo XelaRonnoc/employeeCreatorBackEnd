@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import io.nology.employeeCreatorBackend.address.Address;
 import io.nology.employeeCreatorBackend.address.AddressRepository;
+import io.nology.employeeCreatorBackend.contract.Contract;
+import io.nology.employeeCreatorBackend.contract.ContractRepository;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -25,12 +27,17 @@ public class EmployeeService {
 	@Autowired
 	private AddressRepository addressRepository;
 	
+	@Autowired 
+	private ContractRepository contractRepository;
+	
 	public Employee create(CreateEmployeeDTO data) {
 		// turn dto into and employee
 		
 		Employee newEmployee = modelMapper.map(data,  Employee.class);
 		Address newAddress = modelMapper.map(data.address, Address.class); 
+		Contract newContract = modelMapper.map(data.contract, Contract.class);
 		
+		this.contractRepository.save(newContract);
 		this.addressRepository.save(newAddress);
 		return this.repository.save(newEmployee);
 	}

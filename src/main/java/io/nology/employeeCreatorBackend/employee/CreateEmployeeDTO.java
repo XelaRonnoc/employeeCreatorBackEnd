@@ -2,7 +2,10 @@ package io.nology.employeeCreatorBackend.employee;
 
 import java.util.Date;
 
+
+
 import io.nology.employeeCreatorBackend.address.Address;
+import io.nology.employeeCreatorBackend.contract.Contract;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -29,19 +32,7 @@ public class CreateEmployeeDTO {
 	Address address;
 	
 	@NotNull
-	Date startDate;
-	
-	Date endDate; // can be null meaning ongoing
-	
-	@NotBlank
-	String contractType;
-	
-	@NotBlank
-	String contractTime;
-	
-	@NotNull
-	Integer contractedHours;
-	
+	Contract contract;
 
 	
 	public Address getAddress() {
@@ -86,35 +77,13 @@ public class CreateEmployeeDTO {
 	public void setMobileNum(String mobile) {
 		this.mobileNum = mobile;
 	}
-	public String getContractType() {
-		return contractType;
+	public Contract getContract() {
+		return contract;
 	}
-	public void setContractType(String contractType) {
-		this.contractType = contractType;
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
-	public String getContractTime() {
-		return contractTime;
-	}
-	public void setContractTime(String contractTime) {
-		this.contractTime = contractTime;
-	}
-	public Integer getContractedHours() {
-		return contractedHours;
-	}
-	public void setContractedHours(Integer contractedHours) {
-		this.contractedHours = contractedHours;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+
+	
 	
 }

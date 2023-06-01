@@ -3,6 +3,7 @@ package io.nology.employeeCreatorBackend.employee;
 import java.util.Date;
 
 import io.nology.employeeCreatorBackend.address.Address;
+import io.nology.employeeCreatorBackend.contract.Contract;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,70 +42,25 @@ public class Employee {
 	@Column
 	private String mobileNum;
 	
-//	@Column
-//	private String address; // may be worth splitting into each part of address and or storing in own table
-	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
 	
-	@Column
-	private Date startDate;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "contract_id", referencedColumnName = "id", unique=true)
+	private Contract contract;
 	
-	@Column
-	private Date endDate;
 	
-	@Column
-	private String contractType;
-	
-	@Column
-	private String contractTime;
-	
-	@Column
-	private Integer contractedHours;
-	
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
 	public Long getId() {
 		return id;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public String getContractType() {
-		return contractType;
-	}
-
-	public void setContractType(String contractType) {
-		this.contractType = contractType;
-	}
-
-	public String getContractTime() {
-		return contractTime;
-	}
-
-	public void setContractTime(String contractTime) {
-		this.contractTime = contractTime;
-	}
-
-	public Integer getContractedHours() {
-		return contractedHours;
-	}
-
-	public void setContractedHours(Integer contractedHours) {
-		this.contractedHours = contractedHours;
 	}
 
 	public void setId(Long id) {
@@ -168,24 +124,21 @@ public class Employee {
 	}
 
 	public Employee() {}
-	
-	public Employee(String firstName, String middleName, String lastName, String email, String mobileNum,
-			Address address, Date dateOfBirth, Date startDate, Date endDate, String contractType, String contractTime,
-			Integer contractedHours) {
+
+	public Employee(String firstName, String middleName, String lastName, Date dateOfBirth, String email,
+			String mobileNum, Address address, Contract contract) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
 		this.email = email;
 		this.mobileNum = mobileNum;
 		this.address = address;
-		this.dateOfBirth = dateOfBirth;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.contractType = contractType;
-		this.contractTime = contractTime;
-		this.contractedHours = contractedHours;
+		this.contract = contract;
 	}
+	
+
 
 
 	
