@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import io.nology.employeeCreatorBackend.address.Address;
 import io.nology.employeeCreatorBackend.address.AddressRepository;
+import io.nology.employeeCreatorBackend.address.AddressService;
 import io.nology.employeeCreatorBackend.contract.Contract;
 import io.nology.employeeCreatorBackend.contract.ContractRepository;
 import jakarta.transaction.Transactional;
@@ -26,6 +27,9 @@ public class EmployeeService {
 	
 	@Autowired
 	private AddressRepository addressRepository;
+	
+	@Autowired
+	private AddressService addressService;
 	
 	@Autowired 
 	private ContractRepository contractRepository;
