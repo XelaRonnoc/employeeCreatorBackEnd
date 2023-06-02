@@ -42,11 +42,11 @@ public class Employee {
 	@Column
 	private String mobileNum;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "contract_id", referencedColumnName = "id", unique=true)
 	private Contract contract;
 	
