@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -61,17 +60,6 @@ public class EmployeeController {
 			return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
 		}
 		throw new NotFoundException(String.format("Could not delete post with id: %d post does not exist", id));
-	}
-	
-	@PatchMapping("/{id}")
-	public ResponseEntity<Employee> updateById(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO data){
-		Optional<Employee> maybeUpdated = this.service.updateById(id, data);
-		
-		if(maybeUpdated.isEmpty()) {
-			throw new NotFoundException(String.format("Could not update post with id: %d post does not exist", id));
-		}
-		
-		return new ResponseEntity<Employee>(maybeUpdated.get(), HttpStatus.OK);
 	}
 	
 	@PutMapping("/{id}")
