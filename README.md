@@ -78,6 +78,12 @@ To Do:
 
 ## Change logs
 
+### 03/06/2023 - Removed PATCH endpoint
+- removed unused and non-functional PATCH endpoint, has been replaced with PUT
+
+### 02/06/2023 - Bug Fixes for PUT and DELETE endpoints
+- Fixed bug that resulted in no cascading of updates or delete to the addresses or contracts tables.
+
 ### 01/06/2023 - PUT endpoint creation, reDesign of db schema
 
 -   added PUT endpoint allowing for front end autofill forms and single form component for edit and add new employee
