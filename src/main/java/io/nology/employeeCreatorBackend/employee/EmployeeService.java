@@ -38,6 +38,8 @@ public class EmployeeService {
 		
 		this.contractRepository.save(newContract);
 		this.addressRepository.save(newAddress);
+		newEmployee.setAddress(newAddress);
+		newEmployee.setContract(newContract);
 		return this.repository.save(newEmployee);
 	}
 	
