@@ -78,12 +78,18 @@ To Do:
 
 ## Change logs
 
+### 04/06/2023 - added some validation to contracts schema
+
+    - added not null validator to startDate on contracts schema
+
 ### 03/06/2023 - Removed PATCH endpoint, fixed Race Condtion
-- removed unused and non-functional PATCH endpoint, has been replaced with PUT
-- had a race condition on new entry creation with the interaction of various tables, this was now solved by ensuring that address and contract were saved before employee
+
+-   removed unused and non-functional PATCH endpoint, has been replaced with PUT
+-   had a race condition on new entry creation with the interaction of various tables, this was now solved by ensuring that address and contract were saved before employee
 
 ### 02/06/2023 - Bug Fixes for PUT and DELETE endpoints
-- Fixed bug that resulted in no cascading of updates or delete to the addresses or contracts tables.
+
+-   Fixed bug that resulted in no cascading of updates or delete to the addresses or contracts tables.
 
 ### 01/06/2023 - PUT endpoint creation, reDesign of db schema
 
