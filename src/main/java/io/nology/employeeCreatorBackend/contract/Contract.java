@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "contracts")
@@ -28,7 +29,8 @@ public class Contract {
 	@Column
 	private String contractType;
 	
-	@Column 
+	@Column
+	@NotNull
 	private Date startDate;
 
 	@Column
