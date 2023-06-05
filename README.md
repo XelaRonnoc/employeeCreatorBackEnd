@@ -78,6 +78,9 @@ To Do:
 
 ## Change logs
 
+### 05/06/2023 - added some basic tests
+- added smoketest and some bare bones tests to backend to ensure backend testing worked as expected
+
 ### 04/06/2023 - added some validation to contracts schema
 
     - added not null validator to startDate on contracts schema
