@@ -83,7 +83,7 @@ To Do:
 
 ### 04/06/2023 - added some validation to contracts schema
 
-    - added not null validator to startDate on contracts schema
+-  added not null validator to startDate on contracts schema
 
 ### 03/06/2023 - Removed PATCH endpoint, fixed Race Condtion
 
