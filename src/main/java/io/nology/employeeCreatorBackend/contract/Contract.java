@@ -2,7 +2,7 @@ package io.nology.employeeCreatorBackend.contract;
 
 
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,16 +31,16 @@ public class Contract {
 	
 	@Column
 	@NotNull
-	private Date startDate;
+	private LocalDate startDate;
 
 	@Column
-	private Date endDate;
+	private LocalDate endDate;
 	
 	
 	public Contract() {}
 
 
-	public Contract(Integer contractedHours, String contractTime, String contractType, Date startDate, Date endDate) {
+	public Contract(Integer contractedHours, String contractTime, String contractType, LocalDate startDate, LocalDate endDate) {
 		super();
 		this.contractedHours = contractedHours;
 		this.contractTime = contractTime;
@@ -85,22 +85,22 @@ public class Contract {
 	}
 
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 	

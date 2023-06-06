@@ -1,6 +1,6 @@
 package io.nology.employeeCreatorBackend.employee;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import io.nology.employeeCreatorBackend.address.Address;
 import io.nology.employeeCreatorBackend.contract.Contract;
@@ -19,7 +19,7 @@ public class UpdateEmployeeDTO {
 	@Pattern(regexp = "^(?=\\S).*$", message="Last name cannot be and empty string")
 	String lastName;
 	
-	Date dateOfBirth;
+	LocalDate dateOfBirth;
 	
 	@Size(min = 1)
 	@Pattern(regexp = "^(?=\\S).*$", message="email cannot be and empty string")
@@ -57,11 +57,11 @@ public class UpdateEmployeeDTO {
 		this.lastName = lastName;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

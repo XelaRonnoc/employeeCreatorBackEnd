@@ -30,6 +30,7 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity<Employee> createEmployee(@Valid @RequestBody CreateEmployeeDTO data) {
 		// forward request body to service layer
+		System.out.println(data.getAddress());
 		Employee createdEmployee = this.service.create(data);
 		return new ResponseEntity<Employee>(createdEmployee, HttpStatus.CREATED);
 	}
