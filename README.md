@@ -78,6 +78,9 @@ To Do:
 
 ## Change logs
 
+### 06/06/2023 - Made adjustments to schema,
+- changed schema so that the date is now saved as LocalDate not Date to avoid time zone issues
+
 ### 05/06/2023 - added some basic tests
 - added smoketest and some bare bones tests to backend to ensure backend testing worked as expected
 
