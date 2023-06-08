@@ -78,6 +78,9 @@ To Do:
 
 ## Change logs
 
+### 08/06/2023 - Added Inital Backend tests
+- Added tests for the findAll and findById endpoints in controller and service layer
+
 ### 06/06/2023 - Made adjustments to schema,
 - changed schema so that the date is now saved as LocalDate not Date to avoid time zone issues
 
