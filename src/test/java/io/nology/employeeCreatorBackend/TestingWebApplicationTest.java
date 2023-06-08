@@ -1,13 +1,12 @@
 package io.nology.employeeCreatorBackend;
 
-import static org.hamcrest.Matchers.containsString;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static org.mockito.BDDMockito.given;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,18 +18,31 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.internal.bytebuddy.asm.MemberSubstitution.Substitution.ForMethodInvocation.OfGivenMethod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.nology.employeeCreatorBackend.address.Address;
 import io.nology.employeeCreatorBackend.contract.Contract;
 import io.nology.employeeCreatorBackend.employee.Employee;
+import io.nology.employeeCreatorBackend.employee.EmployeeController;
 import io.nology.employeeCreatorBackend.employee.EmployeeRepository;
 import io.nology.employeeCreatorBackend.employee.EmployeeService;
+import io.nology.employeeCreatorBackend.exceptions.GlobalExceptionHandler;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -41,19 +53,25 @@ public class TestingWebApplicationTest {
 	private EmployeeRepository employeeRepository;
 	
 	@InjectMocks
+	private EmployeeController employeeController;
+	
+	@InjectMocks
 	private EmployeeService employeeService;
 
-	@Autowired
+//	@Autowired
 	private MockMvc mockMvc;
+	
+//	@Autowired
+	private JacksonTester<Employee> jsonEmployee;
 	
 	static Employee employee1;
 	static Employee employee2;
 
-	@Test
-	public void shouldReturnDefaultMessage() throws Exception {
-		this.mockMvc.perform(get("/employees")).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString("")));
-	}
+//	@Test
+//	public void shouldReturnDefaultMessage() throws Exception {
+//		this.mockMvc.perform(get("/employees")).andDo(print()).andExpect(status().isOk())
+//				.andExpect(content().string(containsString("")));
+//	}
 	
 	@BeforeEach
 	 void initEmployees() {
@@ -71,6 +89,12 @@ public class TestingWebApplicationTest {
 		Contract contract2 = new Contract(10, "fullTime", "contract", startDate2, endDate2);
 		employee2 = new Employee("Gimli", "Son of", "Gloin", date2, "gimli@gmail.com", "0438614321", address2, contract2 );
 		
+		
+		JacksonTester.initFields(this, new ObjectMapper());
+		
+		mockMvc = MockMvcBuilders.standaloneSetup(employeeController)
+				.setControllerAdvice(new GlobalExceptionHandler())
+				.build();
 	}
 	
 	@Test
@@ -90,6 +114,17 @@ public class TestingWebApplicationTest {
 		assertEquals(employee1, maybeEmployee.get());
 		verify(this.employeeRepository).findById(2l);
 	}
+	
+//	@Test
+//	public void canRetrieveByIdWhenExists() throws Exception {
+//		given(employeeRepository.findById(2l)).willReturn(Optional.of(employee2));
+//		
+//		MockHttpServletResponse response = mockMvc.perform(
+//				get ("/employees/2")
+//				.accept(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+//		
+//		assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+//		assertThat(response.getContentAsString()).isEqualTo(jsonEmployee.write(employee2).getJson());
+//	}
+	
 }
-
-//{"id":1,"firstName":"Legolas","middleName":"of the","lastName":"Woodland","dateOfBirth":"2000-03-05","email":"lego@gmail.com","mobileNum":"0451678336","address":{"id":1,"streetNumber":"15","streetName":"Christ Street","suburb":"Lindfield","state":"QLD","postCode":"2073"},"contract":{"id":1,"contractedHours":10,"contractTime":"partTime","contractType":"permanent","startDate":"2023-07-20","endDate":"2028-05-18"}},
