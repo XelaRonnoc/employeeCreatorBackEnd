@@ -1,6 +1,7 @@
 package io.nology.employeeCreatorBackend.employee;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 
 
@@ -20,7 +21,7 @@ public class CreateEmployeeDTO {
 	String lastName;
 	
 	@NotNull
-	Date dateOfBirth;
+	LocalDate dateOfBirth;
 	
 	@NotBlank
 	String email;
@@ -59,10 +60,10 @@ public class CreateEmployeeDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getEmail() {

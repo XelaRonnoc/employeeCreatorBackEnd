@@ -1,6 +1,6 @@
 package io.nology.employeeCreatorBackend.employee;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import io.nology.employeeCreatorBackend.address.Address;
 import io.nology.employeeCreatorBackend.contract.Contract;
@@ -34,7 +34,7 @@ public class Employee {
 	private String lastName;
 	
 	@Column
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	
 	@Column
 	private String email;
@@ -115,17 +115,17 @@ public class Employee {
 		this.address = address;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
 	public Employee() {}
 
-	public Employee(String firstName, String middleName, String lastName, Date dateOfBirth, String email,
+	public Employee(String firstName, String middleName, String lastName, LocalDate dateOfBirth, String email,
 			String mobileNum, Address address, Contract contract) {
 		super();
 		this.firstName = firstName;

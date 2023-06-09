@@ -44,11 +44,13 @@ public class EmployeeService {
 	}
 	
 	public List<Employee> findAll() {
+		System.out.println("Looking for ALL");
 		return this.repository.findAll();
 	}
 	
 	
 	public Optional<Employee> findById(Long id) {
+		System.out.println("Looking for id" + id);
 		return this.repository.findById(id);
 	}
 	
@@ -62,6 +64,7 @@ public class EmployeeService {
 	}
 	
 	public Optional<Employee> setById(Long id, UpdateEmployeeDTO data){
+		System.out.println("Looking for id in set" + id);
 		Optional<Employee> maybeEmployee = this.findById(id);
 		if(maybeEmployee.isPresent()) {
 			Employee existingEmployee = maybeEmployee.get();
