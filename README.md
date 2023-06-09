@@ -78,6 +78,9 @@ To Do:
 
 ## Change logs
 
+### 09/06/2023 - Added Additonal Backend tests
+- Added tests for PUT and POST endpoints
+
 ### 08/06/2023 - Added Inital Backend tests
 - Added tests for the findAll and findById endpoints in controller and service layer
 
