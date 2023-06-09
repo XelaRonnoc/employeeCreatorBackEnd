@@ -34,33 +34,33 @@ To Do:
 
 ## Design Goals / Approach
 
-To Do:
+The Design Goals of this project was to build and develop a roubust and easily usable API for the front end application and make the API modular allowing for it to be further expanded/utilised in the future for reference and future projects/improvements.
 
--   Design goals
--   why did you implement this the way you did?
+I would have liked to approach this project in a more TDD way however due to this being my first real spring project I decided it would be more valueable to get the application running and working first before implementing tests. This has been an effective approach that has allowed me to rapidly develop the project to MVP and now take my time learning and understanding testing principles within java and spring whilst having complete software
 
 ---
 
 ## Features
 
-To Do:
-
--   What features does the project have?
--   list them...
+This project provides the API for the Employee Creator frontend repo allowing it to communicate with a MySQL Database utilising the following endpoints:
+  - GET - returns all employees
+  - GET{ID} - returns employee of specified ID
+  - DELETE{ID} - deletes employee with specified ID
+  - PUT {ID} - Allows for Updates to employees and related tables. PUT was chosen instead of PATCH as a PUT update method allowed for more easily achived autofilling forms for editing employees in the front end improving the user experience.
+  - POST{ID} - for creating new employees and related fields.
 
 ---
 
 ## Known issues
 
-To Do:
-
--   tests for Backend namely the POST and PUT requests have fairly poor scope 
+-   tests for the POST and PUT requests have fairly poor scope 
 
 ---
 
 ## Future Goals
 
 -   Implement Improved backend and E2E testing for this application.
+-   Deploy front and backend to provide a live version of the application and build instructions
 
 ---
 
@@ -115,9 +115,7 @@ To Do:
 
 ## What did you struggle with?
 
-To Do :
-
--   What? Why? How?
+-   Implementing Backend tests has been difficult and I have encountered many challenges and blockers whilst attempting to learn how to achieve this in the Spring Backend. Through perseverance I have made some progress in developing backend tests however the tests for POST and PUT are still of poor scope and this is intended to be improved upon when I have more time.
 
 ---
 
@@ -130,7 +128,5 @@ To Do:
 ---
 
 ## Further details, related projects, reimplementations
-
-To Do:
 
 -   See front end at https://github.com/XelaRonnoc/employeeCreatorFrontEnd
