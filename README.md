@@ -1,16 +1,5 @@
 # Employee Creator Backend (Spring)
 
-{add test badges here, all projects you build from here on out will have tests, therefore you should have github workflow badges at the top of your repositories: [Github Workflow Badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)}
-
-## Demo & Snippets
-
-To Do:
-
--   Include hosted link
--   Include images of app if CLI or Client App
-
----
-
 ## Requirements / Purpose
 
 ### MVP
@@ -27,7 +16,7 @@ To Do:
 The purpose of this project is to further develop my skills utilising a Spring backend communicationg with a MySQL DB.
 Especially in the areas of: - Spring backend testing (Unit and E2E) - Spring API creation/utilisation - Spring project setup - Refresh knowledge of designing simple DB Schema - Develop skills of pulling information to front end from multiple related tables - Develop skills in DB interaction from Spring (i.e. DB seeding) - Building and Deploying Spring backends
 
-### stack
+### Stack
 
 The stack utilised is a Spring and MySQL backend with a React Type Script front end.
 This was chosen in order to be able to both improve my skills using Spring (and Java in general) as well as continue to further improve in my ability in React and Typescript front ends. Additionally It will improve skills in E2E testing both from frontend and backend and testing in Java which i have less experience in than I do testing in JavaScript.
@@ -65,14 +54,13 @@ To Do:
 
 To Do:
 
--   Remaining bugs, things that have been left unfixed
--   Features that are buggy / flimsy
+-   tests for Backend namely the POST and PUT requests have fairly poor scope 
 
 ---
 
 ## Future Goals
 
--   What are the immediate features you'd add given more time
+-   Implement Improved backend and E2E testing for this application.
 
 ---
 
