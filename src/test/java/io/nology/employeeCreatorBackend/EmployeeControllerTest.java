@@ -57,9 +57,6 @@ public class EmployeeControllerTest {
 	@MockBean
 	private EmployeeService employeeService;
 	
-	@MockBean
-	private EmployeeRepository employeeRepository;
-
 	@Autowired
 	private JacksonTester<Employee> jsonEmployee;
 	
