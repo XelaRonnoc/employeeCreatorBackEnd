@@ -48,7 +48,7 @@ public class EmployeeController {
 		Optional<Employee> maybeEmployee = this.service.findById(id);
 		
 		if(maybeEmployee.isEmpty()) {
-			throw new NotFoundException("Could not find post with id: " + id);
+			throw new NotFoundException("Could not find employee with id: " + id);
 		}
 		
 		return new ResponseEntity<Employee>(maybeEmployee.get(), HttpStatus.OK);
@@ -60,15 +60,18 @@ public class EmployeeController {
 		if(deleted) {
 			return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
 		}
-		throw new NotFoundException(String.format("Could not delete post with id: %d post does not exist", id));
+		throw new NotFoundException(String.format("Could not delete employee with id: %d employee does not exist", id));
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Employee> setById(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO data){
+		System.out.println("In put controller id " + id);
+		
 		Optional<Employee> maybeUpdated = this.service.setById(id, data);
+		System.out.println(" this is maybe updatyed inners " + maybeUpdated.isEmpty());
 		
 		if(maybeUpdated.isEmpty()) {
-			throw new NotFoundException(String.format("Could not update post with id: %d post does not exist", id));
+			throw new NotFoundException(String.format("Could not update employee with id: %d employee does not exist", id));
 		}
 		
 		return new ResponseEntity<Employee>(maybeUpdated.get(), HttpStatus.OK);
