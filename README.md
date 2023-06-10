@@ -23,15 +23,6 @@ This was chosen in order to be able to both improve my skills using Spring (and 
 
 ---
 
-## Build Steps
-
-To Do:
-
--   how to build / run project
--   use proper code snippets if there are any commands to run
-
----
-
 ## Design Goals / Approach
 
 The Design Goals of this project was to build and develop a roubust and easily usable API for the front end application and make the API modular allowing for it to be further expanded/utilised in the future for reference and future projects/improvements.
@@ -116,14 +107,6 @@ This project provides the API for the Employee Creator frontend repo allowing it
 ## What did you struggle with?
 
 -   Implementing Backend tests has been difficult and I have encountered many challenges and blockers whilst attempting to learn how to achieve this in the Spring Backend. Through perseverance I have made some progress in developing backend tests however the tests for POST and PUT are still of poor scope and this is intended to be improved upon when I have more time.
-
----
-
-## Licensing Details
-
-To Do:
-
--   What type of license are you releasing this under?
 
 ---
 
